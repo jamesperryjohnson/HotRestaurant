@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Hot Resturant</title>
@@ -9,6 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 </head>
+
 <body>
 
   <div class="container">
@@ -16,7 +18,10 @@
       <h1>Fill this out to make a reservation</h1>
       <h3>There are only 5 spots available make your reservation soon!</h3>
       <hr>
-      <a href="./view"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> View Reservations</button></a>
+      <a href="./view">
+        <button type="button" class="btn btn-danger btn-lg">
+          <span class="glyphicon glyphicon-eye-open"></span> View Reservations</button>
+      </a>
     </div>
     <div class="row">
 
@@ -24,7 +29,9 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><strong>Add Characters</strong></h3>
+            <h3 class="panel-title">
+              <strong>Add Characters</strong>
+            </h3>
           </div>
           <div class="panel-body">
             <form method="POST" role="form">
@@ -47,7 +54,8 @@
             </form>
             <br>
             <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-fire"></span> Submit Reservation</button>
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn">
+                <span class="glyphicon glyphicon-fire"></span> Submit Reservation</button>
             </div>
           </div>
         </div>
@@ -58,7 +66,7 @@
 
   <script type="text/javascript">
     // Question: What does this code do?
-    $("#add-btn").on("click", function(event) {
+    $("#add-btn").on("click", function (event) {
       event.preventDefault();
       var newReservation = {
         name: $("#name").val().trim(),
@@ -66,14 +74,23 @@
         email: $("#email").val().trim()
       };
 
+      /*
       // Question: What does this code do??
-      $.post("/api/res_data", newReservation)
+      $("#add-").post("/api/res_data", newReservation)
         .then(function(data) {
           console.log(data);
           alert("Adding Reservation...");
+        });
+        */
+
+      $.post("/api/new", newReservation)
+        .then(function (data) {
+          console.log(data);
+          alert("Adding reservation...");
         });
     });
   </script>
 
 </body>
+
 </html>
