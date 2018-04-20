@@ -9,15 +9,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "home.html"));
+  res.sendFile(path.join(__dirname, "app/public/home.html"));
 });
 
 app.get("/view", function (req, res) {
-  res.sendFile(path.join(__dirname, "view.html"));
+  res.sendFile(path.join(__dirname, "app/public/view.html"));
 });
 
 app.get("/make", function (req, res) {
-  res.sendFile(path.join(__dirname, "make.html"));
+  res.sendFile(path.join(__dirname, "app/public/make.html"));
 });
 
 app.listen(PORT, function () {
