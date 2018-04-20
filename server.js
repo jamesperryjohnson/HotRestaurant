@@ -22,6 +22,27 @@ app.get("/make", function (req, res) {
   res.sendFile(path.join(__dirname, "app/public/make.html"));
 });
 
+app.get("/api/:new?", function(req, res) {
+  // What does this code do?
+  var chosen = req.params.reservations;
+
+  if (chosen) {
+    console.log(chosen);
+
+    // What does this code do?
+    for (var i = 0; i < reservations.length; i++) {
+      if (chosen === reservations[i].routeName) {
+        return res.json(reservations[i]);
+      }
+    }
+
+    return res.send("No character found");
+  }
+
+  // What does this code do?
+  return res.json(reservations);
+});
+
 app.post("/api/new", function (req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body-parser middleware
